@@ -8,16 +8,16 @@ class bash {
     owner   => root,
     group   => root,
     mode    => '0644',
-    source  => 'puppet://modules/bash/prompt.sh',
+    source  => 'puppet:///modules/bash/prompt.sh',
     require => Package['bash'],
   }
 
   # TODO: make template
-  file {'/etc/profile.d/custom_aliases..sh':
+  file {'/etc/profile.d/custom_aliases.sh':
     owner   => root,
     group   => root,
     mode    => '0644',
-    source  => 'puppet://modules/bash/custom_aliases.sh',
+    source  => 'puppet:///modules/bash/custom_aliases.sh',
     require => Package['bash'],
   }
 
