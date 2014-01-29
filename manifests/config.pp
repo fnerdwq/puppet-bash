@@ -5,14 +5,14 @@ class bash::config {
     owner   => root,
     group   => root,
     mode    => '0644',
-    source  => template('bash/prompt.sh.erb'),
+    content => template('bash/prompt.sh.erb'),
   }
 
   file {'/etc/profile.d/aliases.sh':
     owner   => root,
     group   => root,
     mode    => '0644',
-    source  => template('bash/aliases.sh.erb'),
+    content => template('bash/aliases.sh.erb'),
   }
 
 }
