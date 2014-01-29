@@ -2,7 +2,7 @@
 
 if [ $UID -eq 0  -o $EUID -eq 0 ]
 then
-  PS1='<%= scope.lookupvar('root_prompt') -%>'
+  PS1='<%= scope.lookupvar('bash::root_prompt') -%>'
 else
-  PS1='<%= scope.lookupvar('prompt') -%>'
+  PS1='<%= scope.lookupvar('bash::prompt') -%>'
 fi
