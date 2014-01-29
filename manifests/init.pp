@@ -40,9 +40,9 @@ class bash (
   $root_prompt = '[\[\033[01;31m\]\u@\h\[\033[00m\] \[\033[01;34m\]\W\[\033[00m\]]# ',
 ) {
 
-  verify_hash($aliases)
-  verify_string($prompt)
-  verify_string($root_prompt)
+  validate_hash($aliases)
+  validate_string($prompt)
+  validate_string($root_prompt)
 
   class {'bash::install': }
   -> class {'bash::config': }
