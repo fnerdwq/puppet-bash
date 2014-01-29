@@ -1,0 +1,8 @@
+# Managed by puppet.
+
+if [ $UID -eq 0  -o $EUID -eq 0 ]
+then
+  PS1='<%= scope.lookupvar('root_prompt') -%>'
+else
+  PS1='<%= scope.lookupvar('prompt') -%>'
+fi
