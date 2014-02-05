@@ -1,5 +1,5 @@
 # Managed by puppet.
 
-<% scope.lookupvar('bash::aliases').each do |als,cmd| -%>
+<% scope.lookupvar('bash::aliases').sort.each do |als,cmd| -%>
 alias <%= "#{als}=\"#{cmd}\"" %>
 <% end -%>
