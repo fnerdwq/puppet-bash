@@ -36,9 +36,9 @@ class bash (
     'ls' => 'ls --color=auto',
     'll' => 'ls -lha',
   },
-  $prompt      = '[\[\033[01;32m\]\u@\h\[\033[00m\] \[\033[01;34m\]\W\[\033[00m\]]# ',
-  $root_prompt = '[\[\033[01;31m\]\u@\h\[\033[00m\] \[\033[01;34m\]\W\[\033[00m\]]# ',
-) {
+  $prompt      = $bash::params::prompt,
+  $root_prompt = $bash::params::root_prompt,
+) inherits bash::params {
 
   validate_hash($aliases)
   validate_string($prompt)
