@@ -1,5 +1,8 @@
 # Managed by puppet.
 
+# set prompt only for bash (i.e. not for 'dash'!)
+[ -z $BASH_VERSION ] && return
+
 if [ $UID -eq 0  -o $EUID -eq 0 ]
 then
   PS1='<%= scope.lookupvar('bash::root_prompt') -%>'

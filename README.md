@@ -57,3 +57,4 @@ Puppet Version >= 3.4.0, due to specific hiera usage.
 ##TODOs:
 
 * make it work with puppet pre 3.4 
+* make switch to set bash as default for Debian/Ubuntu
