@@ -19,6 +19,10 @@
 #   Globally set the default prompt for root (PS1).
 #   *Optional* (defaults to a nice red one)
 #
+# [*set_default*]
+#   Set bash instead of dash as default shell (only $::ostype==Debian)
+#   *Optional* (defaults to false)
+#
 # === Examples
 #
 # include bash
@@ -38,13 +42,25 @@ class bash (
   },
   $prompt      = $bash::params::prompt,
   $root_prompt = $bash::params::root_prompt,
+  $set_default = false,
 ) inherits bash::params {
 
   validate_hash($aliases)
   validate_string($prompt)
   validate_string($root_prompt)
+  validate_bool(str2bool($set_default))
 
-  class {'bash::install': }
-  -> class {'bash::config': }
+  contain bash::install
+  contain bash::config
+
+  Class['bash::install']
+  -> Class['bash::config']
+
+  if str2bool($set_default) {
+    contain bash::default_shell
+
+    Class['bash::config']
+    -> Class['bash::default_shell']
+  }
 
 }
